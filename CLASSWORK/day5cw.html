@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Item Return Page</title>
+</head>
+<body>
+  <h2>Return Check</h2>
+  <button onclick="checkReturn()">Check Return Eligibility</button>
+  <p id="result"></p>
+
+  <script>
+    function checkReturn() {
+      
+        let order = {
+        itemName: "Pizza",
+        isDelivered: true,
+        daysSinceDelivery: 5
+      };
+
+      
+      let message = (order.isDelivered && order.daysSinceDelivery <= 7) 
+                    ? "Eligible for Return" 
+                    : "Return Period Expired";
+
+      document.getElementById("result").textContent = message;
+
+      
+      console.log("itemName exists?", "itemName" in order);
+
+      
+      delete order.daysSinceDelivery;
+      console.log(order);
+    }
+  </script>
+</body>
+</html>
+
